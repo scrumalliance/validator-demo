@@ -18,13 +18,13 @@
 //      "parts": {
 //          "local_part": "john.smith@example.com",
 //          "domain": "example.com",
-//          "display_name": ""
+//          "display_name": null  //Deprecated Field, will always be null
 //      },
 //      "address": "john.smith@example.com",
 //      "did_you_mean": null
 //  }
 //
-// More API details: https://api.mailgun.net/v2/address
+// More API details: https://documentation.mailgun.com/api-email-validation.html#email-validation
 //
 
 (function( $ ) {
@@ -116,7 +116,7 @@
 	    // make ajax call to get validation results
 	    element.mailgunRequest = $.ajax({
 	        type: "GET",
-	        url: 'https://api.mailgun.net/v2/address/validate?callback=?',
+	        url: 'https://api.mailgun.net/v3/address/validate?callback=?',
 	        data: { address: address_text, api_key: options.api_key },
 	        dataType: "jsonp",
 	        crossDomain: true,
